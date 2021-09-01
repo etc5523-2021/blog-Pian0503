@@ -22,9 +22,10 @@ library(kableExtra)
 
 
 ```{r out.width = "80%", fig.align = "center"}
+library(grid)
 library(png)
-library(jpeg)
-knitr::include_graphics(here("images/Flag_of_Sweden.png"))
+img <- readPNG(here("images/Flag_of_Sweden.png"))
+grid.raster(img)
 ```
 
 

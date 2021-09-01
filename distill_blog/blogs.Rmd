@@ -1,0 +1,6 @@
+---
+title: "COVID-19"
+description: Anlysis of Covid-19 data in Sweden
+date: "`r Sys.Date()`"
+listing: posts
+---

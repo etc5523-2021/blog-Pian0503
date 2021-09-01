@@ -1,7 +1,7 @@
 ---
 title: "About this blog"
-description: |
-  Some additional details about the blog
+description: This blog is designed for ETC5523
+date: "`r Sys.Date()`"
 ---
 
 ```{r setup, include=FALSE}

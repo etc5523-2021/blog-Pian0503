@@ -10,10 +10,69 @@ output:
     self_contained: false
 ---
 
-```{r setup, include=FALSE}
+```{r setup, echo=FALSE,eval=TRUE,message=FALSE,include=FALSE,warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(here)
+library(lubridate)
+library(DT)
+library(kableExtra)
 
 ```
+
+
+```{r out.width = "80%", fig.align = "center"}
+library(png)
+library(jpeg)
+knitr::include_graphics(here("images/Flag_of_Sweden.png"))
+```
+
+
+# Data description
+
+There are two datasets used to analyze the change of disease-related data(cases, deaths, mortality rate) and the efficiency of vaccinations during the COVID-19 phase in Sweden. The data of cases and deaths is obtained from [the World Health Organization (WHO)](https://covid19.who.int/table), while data on COVID-19 vaccinations is sourced from the publicly available [Github repository](https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations) created by [Our World in Data (OWID)](https://ourworldindata.org/).
+
+
+## Structure of data
+
+All variables included in the two datasets are listed below:
+
+```{r echo=FALSE,eval=TRUE}
+data_structure <- data.frame(Variables = c("Country",
+                         "Date_reported",
+                         "New_cases",
+                         "New_deaths",
+                         "total_vaccinations",
+                         "people_vaccinated",
+                         "people_fully_vaccinated"),
+           Types = c("character",
+                     "date",
+                     "double",
+                     "double",
+                     "double",
+                     "double",
+                     "double"),
+           Description = c("name of the country",
+                           "date of the observation",
+                           "new confirmed cases of COVID-19",
+                           "new deaths attributed to COVID-19",
+                           "total number of doses administered,each individual dose is counted",
+                           "total number of people who received at least one vaccine dose.",
+                           "total number of people who received all doses prescribed by the vaccination protocol"))
+
+
+kable(data_structure, caption = "Data Structure of chosen datasets") %>%
+  kable_paper(bootstrap_options = "striped",full_width = F)
+  # row_spec(0, background = 'black', color = '#fff')
+
+```
+
+
+
+
+
+
+
 
 
 

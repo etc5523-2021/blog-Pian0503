@@ -63,11 +63,68 @@ data_structure <- data.frame(Variables = c("Country",
 
 kable(data_structure, caption = "Data Structure of chosen datasets") %>%
   kable_paper(bootstrap_options = "striped",full_width = F)
-  # row_spec(0, background = 'black', color = '#fff')
 
 ```
 
 
+# Data Analysis
+
+## Cases and deaths
+
+```{r read-data}
+vac <- read_csv(here("./data/vaccinations.csv"))
+covid <- read_csv(here("./data/WHO-COVID-19-global-data.csv"))
+```
+
+
+```{r tidycovid}
+Date_reported = col_date()
+
+covid_tidy_cases <- covid %>% 
+  mutate(date = dmy(Date_reported)) %>% 
+  mutate_at(vars(date), funs(year, month, day)) %>%
+  mutate(Month = month.abb[as.numeric(month)]) %>%
+  group_by(year,Month) %>%
+  select(year, Month, Country,New_cases,New_deaths) %>%
+  filter(Country == 'Sweden') %>%
+  tally(New_cases) %>%
+  rename(New_cases = n,
+         Year = year)
+
+covid_tidy_deaths <- covid %>% 
+  mutate(date = dmy(Date_reported)) %>% 
+  mutate_at(vars(date), funs(year, month, day)) %>%
+  mutate(Month = month.abb[as.numeric(month)]) %>%
+  group_by(year,Month)%>%
+  select(year, month, Country,New_cases,New_deaths) %>%
+  filter(Country == 'Sweden') %>%
+  tally(New_deaths) %>%
+  rename(New_deaths = n,
+         Year = year)
+
+
+cases_deaths <- left_join(covid_tidy_cases,covid_tidy_deaths) %>%
+  mutate("Mortality rate (%)" = round(New_deaths/New_cases * 100,2)) %>%
+  rename("Cases" = New_cases,
+         "Deaths" = New_deaths)
+
+```
+
+```{r deathrate}
+DT::datatable(cases_deaths, caption = "Number of cases and deaths of COVID19 in Sweden", options = list(pageLength = 10,
+                                           initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': 'black', 'color': '#fff'});",
+    "}")
+))
+
+```
+
+**Change in cases and deaths**
+
+The table above shows the monthly change of cases and deaths in Sweden from 2020 to 2021. The number of cases and deaths has surged since March of 2020, the largest number of cases and deaths for the entire year recorded in November, around 183000 cases and 2500 deaths reported. 
+
+According to the National Strategy, the test capacity in Sweden has increased substantially during 2021 (April, May and June), in order to lower the unrecorded cases and deaths (Public health Agency of Sweden, 2020). It can be seen that the number of cases and deaths peaked in April 2021, case number then dropped gradually in the following months.
 
 
 

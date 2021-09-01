@@ -1,5 +1,10 @@
 ---
-title: "Pian Blog"
+title: "ETC5523 - Blog"
+description: "
+  Blog for ETC5523 "
+author:
+  - name: "Pian Li"
+    affiliation: Monash University
+date: "`r Sys.Date()`"
 site: distill::distill_website
-listing: posts
 ---

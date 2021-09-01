@@ -1,12 +1,15 @@
-name: "distill_blog"
-title: "Pian Blog"
+name: "demo-blog"
+title: "Pian Li"
 description: |
-  Pian Blog
+  Blogs for ETC5523
 output_dir: "docs"
+theme: theme.css
 navbar:
   right:
-    - text: "Home"
-      href: index.html
+    - text: "Blog"
+      href: blogs.html
     - text: "About"
-      href: about.html
+      href: About.html
+    - icon: fab fa-github
+      href: https://github.com/etc5523-2021/blog-Pian0503
 output: distill::distill_article

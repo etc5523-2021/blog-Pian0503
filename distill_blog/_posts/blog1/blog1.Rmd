@@ -127,8 +127,95 @@ The table above shows the monthly change of cases and deaths in Sweden from 2020
 According to the National Strategy, the test capacity in Sweden has increased substantially during 2021 (April, May and June), in order to lower the unrecorded cases and deaths (Public health Agency of Sweden, 2020). It can be seen that the number of cases and deaths peaked in April 2021, case number then dropped gradually in the following months.
 
 
+## Vaccinations
+
+```{r tidyvac}
+
+vac_total <- vac %>%
+  filter(location == 'Sweden') %>%
+  rename(Country = location) %>%
+  mutate(date = ymd(date)) %>% 
+  mutate_at(vars(date), funs(year, month, day)) %>%
+  mutate(Month = month.abb[as.numeric(month)]) %>%
+  group_by(Month,year) %>%
+  select(Month, Country,total_vaccinations,people_vaccinated,people_fully_vaccinated,daily_vaccinations) %>%
+  tally(total_vaccinations) %>%
+  rename(Total_vaccinations = n,
+         Year = year) %>%
+  select(Year,Month,Total_vaccinations) 
 
 
+vac_fully <- vac %>% 
+  filter(location == 'Sweden') %>%
+  rename(Country = location) %>%
+  mutate(date = ymd(date)) %>% 
+  mutate_at(vars(date), funs(year, month, day)) %>%
+  mutate(Month = month.abb[as.numeric(month)]) %>%
+  group_by(Month,year) %>%
+  select(Month, Country,total_vaccinations,people_fully_vaccinated,people_vaccinated,daily_vaccinations) %>%
+  tally(people_fully_vaccinated) %>%
+  rename(People_fully_vaccination = n,
+         Year = year) %>%
+  select(Year,Month,People_fully_vaccination) 
+
+vac_one <- vac %>%
+  filter(location == 'Sweden') %>%
+  rename(Country = location) %>%
+  mutate(date = ymd(date)) %>% 
+  mutate_at(vars(date), funs(year, month, day)) %>%
+  mutate(Month = month.abb[as.numeric(month)]) %>%
+  group_by(Month,year) %>%
+  select(Month, Country,total_vaccinations,people_fully_vaccinated,people_vaccinated,daily_vaccinations) %>%
+  tally(people_vaccinated) %>%
+  rename(People_vaccinated = n,
+         Year = year) %>%
+  select(Year,Month,People_vaccinated) 
+
+vac_tidy <- left_join(vac_total,vac_one) 
+
+vac_tidy_final <- left_join(vac_tidy,vac_fully) %>%
+  mutate("Fully vaccinated rate (%)" = round((People_fully_vaccination / Total_vaccinations) * 100, 2)) %>%
+  rename("People fully vaccination" = People_fully_vaccination,
+         "Total vaccinations" = Total_vaccinations,
+         "People vaccinated" = People_vaccinated)
+
+datatable(vac_tidy_final,caption = "Vaccinations in Sweden", options = list(pageLength = 10,
+                                           initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': 'black', 'color': '#fff'});",
+    "}")
+))
+
+
+
+```
+
+
+**Mortality rate and Vaccination**
+
+From the table of cases and deaths, the monthly death rate has significantly risen from the beginning of the pandemic, likely resulting from the imperfect treatment system for a new disease. The highest death rate of 15.5% was recorded in April 2020. It is also clear that the mortality rate has fallen from the beginning of 2021, dropped under 1% from February 2021. 
+
+The population in Sweden has received one and all vaccine doses are recorded and shown in the table above. In addition, there was an upward trend in the fully vaccinated rate from the beginning of 2021, almost 44% have been fully vaccinated in August 2021.
+
+Therefore, it is evident that vaccinations effectively reduce the death rate due to the decline in mortality rate and rise in vaccinations during the same period. Sweden should continue the vaccination roll-out, and people should actively participate.
+
+
+## Summary Statistics
+
+The statistical summary table below is created using the package _arsenal_, which consists of three variables: Cases, Deaths and Mortality rate (%).
+
+```{r statistic,results="asis"}
+library(arsenal)
+
+cases_deaths_stat <- cases_deaths %>%
+  select(Year, `Cases`,`Deaths`,`Mortality rate (%)`)
+
+table_one <- tableby(Year ~ .,data = cases_deaths_stat,numeric.stats = c("meansd","range"))
+summary(table_one,title = "Summary statistic for cases and deaths in Sweden")
+
+```
+
+In Sweden, the testing has increased since April 2021, more and more people can be tested, and the government can obtain accurate data for epidemic prevention and control. Thus, We should notice that the mean cases is much higher in 2021. Additionally, the average deaths and mortality rate in 2021 are below that in 2020, with around 630 deaths and a 0.6% death rate, which means the vaccine can effectively control the spread of the pandemic and lower mortality.
 
 
 

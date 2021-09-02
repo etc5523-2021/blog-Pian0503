@@ -113,6 +113,47 @@ cases_deaths <- left_join(covid_tidy_cases,covid_tidy_deaths) %>%
 
 ```
 
+
+```{r trend}
+library(plotly)
+
+covid_trend <- covid %>%
+  filter(Country == "Sweden") %>%
+  mutate(date = as.Date(Date_reported)) %>%
+  select(Country,
+         Date_reported,
+         New_cases, 
+         New_deaths) 
+
+covid_trend$Date_reported = as.Date(covid_trend$Date_reported, format = "%d/%m/%Y") 
+
+case_plot <- ggplot(covid_trend, aes(x= Date_reported)) + 
+  geom_bar(stat = "identity",aes(y = New_cases),fill = "#2166AC") +
+  xlab("Date") +
+  ylab("Number of cases") +
+  scale_x_date(date_breaks = "100 days",date_labels = "%Y-%m-%d") +
+  theme(axis.text.x = element_text(angle=20, hjust = 1)) +
+  theme_light() +
+  ggtitle("Confirmed cases for COVID-19 in Sweden")
+
+
+death_plot <- ggplot(covid_trend, aes(x= Date_reported)) + 
+  geom_bar(stat = "identity",aes(y = New_deaths),fill = "#2166AC") +
+  xlab("Date") +
+  ylab("Number of deaths") +
+  scale_x_date(date_breaks = "100 days",date_labels = "%Y-%m-%d") +
+  theme(axis.text.x = element_text(angle=20, hjust = 1)) +
+  theme_light() +
+  ggtitle("Confirmed deaths for Covid-19 in Sweden")
+
+  ggplotly(case_plot)
+  ggplotly(death_plot)
+
+```
+
+According to the trends of cases and deaths, it can be seen that the number of cases is relatively low from the beginning of the pandemic phase, while the number of deaths is higher. However, the cases and deaths number remain lower level from around August to October 2020, which likely results from the lower survival rate for the virus in hot summer weather. Furthermore, the death number has dropped gradually from January 2021, but the cases rebounded slightly around July 2021.
+
+
 ```{r deathrate}
 DT::datatable(cases_deaths, caption = "Number of cases and deaths of COVID19 in Sweden", options = list(pageLength = 10,
                                            initComplete = JS(

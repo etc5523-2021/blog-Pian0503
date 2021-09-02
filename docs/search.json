@@ -7,7 +7,7 @@
       "author": [],
       "date": "`r Sys.Date()`",
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-09-02T23:52:50+08:00"
+      "last_modified": "2021-09-02T23:57:33+08:00"
     },
     {
       "path": "blogs.html",
@@ -16,7 +16,7 @@
       "author": [],
       "date": "`r Sys.Date()`",
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-09-02T23:52:52+08:00"
+      "last_modified": "2021-09-02T23:57:34+08:00"
     },
     {
       "path": "index.html",
@@ -30,7 +30,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-09-02T23:52:53+08:00"
+      "last_modified": "2021-09-02T23:57:36+08:00"
     }
   ],
   "collections": ["posts/posts.json"]

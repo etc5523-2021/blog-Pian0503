@@ -92,8 +92,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-09-01"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-09-01"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-09-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-02"/>
   <meta name="article:author" content="Pian Li"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["COVID-19 in Sweden"]},{"type":"character","attributes":{},"value":["Analysis of the epidemic stage in Sweden.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Pian Li"]}]}]},{"type":"character","attributes":{},"value":["2021-09-01"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["COVID-19 in Sweden"]},{"type":"character","attributes":{},"value":["Analysis of the epidemic stage in Sweden.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Pian Li"]}]}]},{"type":"character","attributes":{},"value":["2021-09-02"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1465,7 +1465,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"COVID-19 in Sweden","description":"Analysis of the epidemic stage in Sweden.","authors":[{"author":"Pian Li","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-01T00:00:00.000+08:00","citationText":"Li, 2021"}
+{"title":"COVID-19 in Sweden","description":"Analysis of the epidemic stage in Sweden.","authors":[{"author":"Pian Li","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-02T00:00:00.000+08:00","citationText":"Li, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1484,10 +1484,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-byline">
   Pian Li  
   
-<br/>2021-09-01
+<br/>2021-09-02
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#data-description">Data description</a>
+<ul>
+<li><a href="#structure-of-data">Structure of data</a></li>
+</ul></li>
+<li><a href="#data-analysis">Data Analysis</a>
+<ul>
+<li><a href="#cases-and-deaths">Cases and deaths</a></li>
+<li><a href="#vaccinations">Vaccinations</a></li>
+<li><a href="#summary-statistics">Summary Statistics</a></li>
+</ul></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+</nav>
+</div>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="blog1_files/figure-html5/unnamed-chunk-1-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
@@ -1603,16 +1621,16 @@ total number of people who received all doses prescribed by the vaccination prot
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-2775a5131575e5e29b1c" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2775a5131575e5e29b1c">{"x":{"filter":"none","caption":"<caption>Number of cases and deaths of COVID19 in Sweden<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],[2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021],["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May","Nov","Oct","Sep","Apr","Aug","Feb","Jan","Jul","Jun","Mar","May"],[16229,7806,182495,2,1,10051,28369,3941,17791,129815,32451,8349,171136,23356,90705,133797,10249,20716,134539,101615],[2516,67,2509,0,0,280,902,239,1823,1135,135,52,574,20,842,2515,16,95,586,379],[15.5,0.86,1.37,0,0,2.79,3.18,6.06,10.25,0.87,0.42,0.62,0.34,0.09,0.93,1.88,0.16,0.46,0.44,0.37]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Year<\/th>\n      <th>Month<\/th>\n      <th>Cases<\/th>\n      <th>Deaths<\/th>\n      <th>Mortality rate (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'background-color': 'black', 'color': '#fff'});\n}","columnDefs":[{"className":"dt-right","targets":[1,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+<div id="htmlwidget-5c8ad14cf0efc1860d65" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5c8ad14cf0efc1860d65">{"x":{"filter":"none","caption":"<caption>Number of cases and deaths of COVID19 in Sweden<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],[2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021],["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May","Nov","Oct","Sep","Apr","Aug","Feb","Jan","Jul","Jun","Mar","May"],[16229,7806,182495,2,1,10051,28369,3941,17791,129815,32451,8349,171136,23356,90705,133797,10249,20716,134539,101615],[2516,67,2509,0,0,280,902,239,1823,1135,135,52,574,20,842,2515,16,95,586,379],[15.5,0.86,1.37,0,0,2.79,3.18,6.06,10.25,0.87,0.42,0.62,0.34,0.09,0.93,1.88,0.16,0.46,0.44,0.37]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Year<\/th>\n      <th>Month<\/th>\n      <th>Cases<\/th>\n      <th>Deaths<\/th>\n      <th>Mortality rate (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'background-color': 'black', 'color': '#fff'});\n}","columnDefs":[{"className":"dt-right","targets":[1,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
 </div>
 <p><strong>Change in cases and deaths</strong></p>
 <p>The table above shows the monthly change of cases and deaths in Sweden from 2020 to 2021. The number of cases and deaths has surged since March of 2020, the largest number of cases and deaths for the entire year recorded in November, around 183000 cases and 2500 deaths reported.</p>
 <p>According to the National Strategy, the test capacity in Sweden has increased substantially during 2021 (April, May and June), in order to lower the unrecorded cases and deaths (Public health Agency of Sweden, 2020). It can be seen that the number of cases and deaths peaked in April 2021, case number then dropped gradually in the following months.</p>
 <h2 id="vaccinations">Vaccinations</h2>
 <div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-97a35508a66cdb6c5117" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-97a35508a66cdb6c5117">{"x":{"filter":"none","caption":"<caption>Vaccinations in Sweden<\/caption>","data":[["1","2","3","4","5","6","7","8","9"],[2021,2021,2020,2021,2021,2021,2021,2021,2021],["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May"],[10066981,94192467,2447,2566056,783052,38320830,28084607,5423447,22337766],[7330914,53532321,2447,1757800,735101,23336495,17915455,3765614,16762494],[2736067,40655221,0,808256,47951,14984335,10169152,1657833,5575272],[27.18,43.16,0,31.5,6.12,39.1,36.21,30.57,24.96]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Year<\/th>\n      <th>Month<\/th>\n      <th>Total vaccinations<\/th>\n      <th>People vaccinated<\/th>\n      <th>People fully vaccination<\/th>\n      <th>Fully vaccinated rate (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'background-color': 'black', 'color': '#fff'});\n}","columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+<div id="htmlwidget-efcbb1c27b8b831711e5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-efcbb1c27b8b831711e5">{"x":{"filter":"none","caption":"<caption>Vaccinations in Sweden<\/caption>","data":[["1","2","3","4","5","6","7","8","9"],[2021,2021,2020,2021,2021,2021,2021,2021,2021],["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May"],[10066981,94192467,2447,2566056,783052,38320830,28084607,5423447,22337766],[7330914,53532321,2447,1757800,735101,23336495,17915455,3765614,16762494],[2736067,40655221,0,808256,47951,14984335,10169152,1657833,5575272],[27.18,43.16,0,31.5,6.12,39.1,36.21,30.57,24.96]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Year<\/th>\n      <th>Month<\/th>\n      <th>Total vaccinations<\/th>\n      <th>People vaccinated<\/th>\n      <th>People fully vaccination<\/th>\n      <th>Fully vaccinated rate (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'background-color': 'black', 'color': '#fff'});\n}","columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
 </div>
 <p><strong>Mortality rate and Vaccination</strong></p>
 <p>From the table of cases and deaths, the monthly death rate has significantly risen from the beginning of the pandemic, likely resulting from the imperfect treatment system for a new disease. The highest death rate of 15.5% was recorded in April 2020. It is also clear that the mortality rate has fallen from the beginning of 2021, dropped under 1% from February 2021.</p>

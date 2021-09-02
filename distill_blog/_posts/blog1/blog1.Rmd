@@ -223,6 +223,8 @@ In Sweden, the testing has increased since April 2021, more and more people can 
 
 # Reference
 
+**R-packages**
+
 Yihui Xie, Joe Cheng and Xianying Tan (2021). DT: A Wrapper of the JavaScript Library ‘DataTables’. R package version 0.18. https://CRAN.R-project.org/package=DT
 
 Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
@@ -235,16 +237,14 @@ Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubrida
 
 Ethan Heinzen, Jason Sinnwell, Elizabeth Atkinson, Tina Gunderson andGregory Dougherty (2021). arsenal: An Arsenal of 'R' Functions for Large-Scale Statistical Summaries. R package version 3.6.3. https://CRAN.R-project.org/package=arsenal
 
-Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/coronavirus' [Online Resource]
+C. Sievert. Interactive Web-Based Data Visualization with R, plotly, and shiny. Chapman and Hall/CRC Florida, 2020.
 
-World Health Organisation (2021). WHO Coronavirus (COVID-19) Dashboard. Retrieved from https://covid19.who.int/
 
-Mathieu, E., Ritchie, H., Ortiz-Ospina, E. et al. A global database of COVID-19 vaccinations. Nat Hum Behav (2021). https://doi.org/10.1038/s41562-021-01122-8
+**Websites**
+
+Our Data in World. (2021). owid. https://github.com/owid/covid-19-data/tree/master/public/data
 
 The Public health Agency of Sweden, (2020), Statistics- How many people are ill from COVID-19 in Sweden?, accessed 1.Sep, 2021, https://www.folkhalsomyndigheten.se/the-public-health-agency-of-sweden/communicable-disease-control/covid-19/covid-19-faq/statistics/?exp=72722#_72722
 
-
-
-
-
+World Health Organisation (2021). WHO Coronavirus (COVID-19) Dashboard. Retrieved from https://covid19.who.int/
 

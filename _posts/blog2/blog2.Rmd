@@ -328,6 +328,48 @@ The previous COVID-related index table shows that the monthly death rate and pos
 Therefore, it can be concluded that the government should promote vaccinations as one of the effective methods to avoid the COVID-19 situation continues to worsen since the positive rate and death rate are both under control from early 2021.
 
 
+# Reference
+
+**R-packages**
+
+* Yihui Xie, Joe Cheng and Xianying Tan (2021). DT: A Wrapper of the JavaScript Library ‘DataTables’. R package version 0.18. https://CRAN.R-project.org/package=DT
+
+* Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+
+* Kirill Müller (2020). here: A Simpler Way to Find Your Files. R package version 1.0.1. https://CRAN.R-project.org/package=here
+
+* Hao Zhu (2021). kableExtra: Construct Complex Table with 'kable' and Pipe Syntax. R package version 1.3.4. https://CRAN.R-project.org/package=kableExtra
+
+* Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL https://www.jstatsoft.org/v40/i03/.
+
+* C. Sievert. Interactive Web-Based Data Visualization with R, plotly, and shiny. Chapman and Hall/CRC Florida, 2020.
+
+* Simon Garnier (2018). viridis: Default Color Maps from 'matplotlib'. R package version 0.5.1. https://CRAN.R-project.org/package=viridis
+
+* Kun Ren and Kenton Russell (2021). formattable: Create 'Formattable' Data Structures. R package version 0.2.1. https://CRAN.R-project.org/package=formattable
+
+* Bob Rudis (2020). hrbrthemes: Additional Themes, Theme Components and Utilities for 'ggplot2'. R package version 0.8.0. https://CRAN.R-project.org/package=hrbrthemes
+
+* H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+
+* Thomas Lin Pedersen and David Robinson (2020). gganimate: A Grammar of Animated Graphics. R package version 1.0.7. https://CRAN.R-project.org/package=gganimate
+
+* Jeroen Ooms (2021). gifski: Highest Quality GIF Encoder. R package version 1.4.3-1. https://CRAN.R-project.org/package=gifski
+
+* Dan Vanderkam, JJ Allaire, Jonathan Owen, Daniel Gromer and Benoit Thieurmel (2018). dygraphs: Interface to 'Dygraphs' Interactive Time Series Charting Library. R package version 1.1.1.6. https://CRAN.R-project.org/package=dygraphs
+
+* Jeffrey A. Ryan and Joshua M. Ulrich (2020). xts: eXtensible Time Series. R package version 0.12.1. https://CRAN.R-project.org/package=xts
+
+**Websites**
+
+* Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/coronavirus' [Online Resource]
+
+* Our Data in World. (2021). owid. https://github.com/owid/covid-19-data/tree/master/public/data
+
+* Reuters. 2021. Panama: the latest coronavirus counts, charts and maps. [online] Available at: <https://graphics.reuters.com/world-coronavirus-tracker-and-maps/countries-and-territories/panama/> [Accessed 15 September 2021].
+
+
+
 
 
 

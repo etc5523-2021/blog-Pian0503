@@ -12,4 +12,11 @@ navbar:
       href: About.html
     - icon: fab fa-github
       href: https://github.com/etc5523-2021/blog-Pian0503
+  search: true
+base_url: https://github.com/etc5523-2021/blog-Pian0503
+repository_url: https://github.com/etc5523-2021/blog-Pian0503
+collections:
+  posts:
+    disqus: demo-blog
+    share: [twitter, linkedin]
 output: distill::distill_article

@@ -2,7 +2,7 @@
 
 
 This is the blog of [Pian Li].
-The URL of this blog is [https://blog-lipian0503.netlify.app/].
+The URL of this blog is [https://blogs-lipian0503.netlify.app/].
 
 ## Blog Post 1
 
@@ -10,7 +10,7 @@ This assessment is due Fri Sep 3 2021 11.55PM AEST.
 
 My selected country is [Sweden].
 
-The relevant blog post for this assessment is in [https://blog-lipian0503.netlify.app/posts/blog1/]
+The relevant blog post for this assessment is in [https://blogs-lipian0503.netlify.app/posts/blog1/]
 
 - [ ] Selected a country
 - [ ] Website with R markdown 
@@ -26,9 +26,9 @@ The relevant blog post for this assessment is in [https://blog-lipian0503.netlif
 
 This assessment is due Fri Sep 17 2021 11.55PM AEST.
 
-My selected country is [FILL].
+My selected country is [Panama].
 
-The relevant blog post for this assessment is in [FILL].html
+The relevant blog post for this assessment is in [https://blogs-lipian0503.netlify.app/posts/blog2/]
 
 - [ ] Selected a new country
 - [ ] Data Story 1

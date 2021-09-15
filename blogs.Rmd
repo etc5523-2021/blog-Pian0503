@@ -1,6 +1,6 @@
 ---
-title: "COVID-19"
-description: Anlysis of Covid-19 data in Sweden
+title: "Lastest blog"
+description: Anlysis of Covid-19 data in different countries
 date: "`r Sys.Date()`"
 listing: posts
 ---

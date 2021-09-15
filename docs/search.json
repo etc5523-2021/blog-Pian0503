@@ -11,12 +11,12 @@
     },
     {
       "path": "blogs.html",
-      "title": "COVID-19",
-      "description": "Anlysis of Covid-19 data in Sweden",
+      "title": "Lastest blog",
+      "description": "Anlysis of Covid-19 data in different countries",
       "author": [],
       "date": "`r Sys.Date()`",
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-09-02T23:57:34+08:00"
+      "last_modified": "2021-09-15T22:20:09+08:00"
     },
     {
       "path": "index.html",

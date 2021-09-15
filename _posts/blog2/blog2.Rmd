@@ -1,23 +1,55 @@
 ---
-title: "blog2"
+title: "COVID-19 in Panama"
 description: |
-  A short description of the post.
+  Analysis of the epidemic stage in Panama.
 author:
   - name: Pian Li
-    url: {}
-date: 09-15-2021
+date: "`r Sys.Date()`"
 output:
   distill::distill_article:
     self_contained: false
+    toc: true
+    toc_depth: 3
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup, echo=FALSE,eval=TRUE,message=FALSE,include=FALSE,warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(here)
+library(lubridate)
+library(DT)
+library(kableExtra)
+library(plotly)
+library(viridis)
+library(formattable)
+library(hrbrthemes)
+library(ggplot2)
+library(gganimate)
+library(gifski)
+library(dygraphs)
+library(xts)
+
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+```{r fig.align = "center"}
+library(grid)
+library(png)
+img <- readPNG(here("images/Flag_of_Panama.png"))
+grid.raster(img)
+```
+
+
+```{r read-data}
+
+vac_panama <- read_csv(here("./data/Panama.csv"))
+covid_panama <- read_csv(here::here("data/owid-covid-data.csv"))
+test_panama <- read_csv(here::here("data/covid-testing-all-observations.csv"))
+
+```
+
+
+
 
 

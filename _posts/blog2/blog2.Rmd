@@ -133,3 +133,204 @@ kable(dict_panama, caption = "Data Structure of chosen datasets") %>%
 ```
 
 
+# Analysis and findings
+
+## General trend of total confirmed cases
+
+```{r overallcases,fig.align='center', fig.height=7, fig.width=12, fig.cap="Total confirmed cases in each continent"}
+
+world <- covid_panama %>%
+  select(location, date, total_cases) %>%
+  filter(location %in% c("Asia","Europe","North America","South America","Africa","Oceania")) %>%
+  mutate(date = dmy(date))
+
+ggplot(world, aes(x = date, y = total_cases, group = location, color = location)) + 
+  geom_line(size = 1.2) +
+  geom_point(shape = 22, size = 3, fill = "white") +
+  scale_x_date(date_breaks = "4 month") +
+  theme_ipsum() +
+  labs(title = "The change in total cases in the world",
+       x = "Date",
+       y = "Total cases") +
+  scale_colour_brewer(palette = "Set1") +
+  theme(text = element_text(size = 12, face = "bold", color = "black")) +
+  transition_reveal(date)
+
+```
+
+The animated line chart above gives a general view of the change in the cases number for each continent from 2020 to 2021. Europe has the largest cumulative cases until around May 2021, then is overtook by Asia, whereas Oceania and Africa's regions are relatively stable.
+
+## COVID-19 situation in Panama
+
+### Tests in Panama
+
+```{r covidplot, fig.width = 12, fig.cap = "Tests and cases in Panama", fig.align='center'}
+
+library(dygraphs)
+library(xts)
+
+p_dy <- tidy_case_test  %>%
+  mutate(Date = as.Date(Date)) %>%
+  select(Date,new_cases,New_tests) %>%
+  drop_na() %>%
+  rename("New tests" = New_tests,
+         "New cases" = new_cases)
+
+p_dy <- p_dy %>%
+  xts(order.by = p_dy$Date) 
+
+dygraph(p_dy, main = "The daily new cases and tests during the pandemic period") %>%
+  dyAxis("y",label = "New tests") %>%
+  dyAxis("y2", label = "New cases") %>%
+  dySeries("New tests", axis = "y", stepPlot = TRUE, fillGraph = TRUE, color = "darkolivegreen") %>%
+  dySeries("New cases", axis = "y2", stepPlot = TRUE, color = "maroon") %>%
+  dyOptions(axisLineWidth = 1.5, drawGrid = FALSE,,fillAlpha = 0.55) %>%
+  dyRangeSelector(height = 20) %>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3))
+
+```
+
+The graph shows the daily new tests and cases during the pandemic period in Panama. It is clear to see that number of confirmed cases reached a peak at 5186 in Jan 2021. Additionally, the gap between tests and cases has gradually expanded from early 2021 and is more significant than in 2020.
+
+```{r covidtable}
+
+t1 <- tidy_case_test %>%
+  mutate(Date = ymd(Date)) %>% 
+  mutate_at(vars(Date), funs(year, month, day)) %>%
+  mutate(Month = month.abb[as.numeric(month)]) %>%
+  group_by(year,Month) %>%
+  select(year, Month, Country,new_cases,new_deaths,New_tests, Positive_rate) %>%
+  summarise_at(c("new_cases","new_deaths","New_tests"), sum, na.rm = TRUE) %>%
+  mutate(`Positive test rate(%)` = round(`new_cases`/`New_tests` * 100,2),
+         `Fatality rate(%)` = round(`new_deaths` / `new_cases` * 100,2)) %>%
+  rename(`Year` = year,
+         `New cases` = new_cases,
+         `New deaths` = new_deaths,
+         `New tests` = New_tests) %>%
+  arrange(`Year`)
+
+t1_test_cases <- t1[-c(19),]
+
+datatable(t1_test_cases, caption = "COVID19-related index in Panama",options = list(pageLength = 9),class = 'order-column') %>% 
+            formatStyle("New cases",
+                        background = styleColorBar(t1_test_cases$"New cases", 'lightgrey'),
+    backgroundSize = '95% 80%',
+    backgroundRepeat = 'no-repeat',
+    backgroundPosition = 'center'
+  ) %>%
+  formatStyle("New deaths",
+                        background = styleColorBar(t1_test_cases$"New deaths", 'lightgrey'),
+    backgroundSize = '95% 80%',
+    backgroundRepeat = 'no-repeat',
+    backgroundPosition = 'center'
+  ) %>%
+  formatStyle("New tests",
+                        background = styleColorBar(t1_test_cases$"New tests", 'lightgrey'),
+    backgroundSize = '95% 80%',
+    backgroundRepeat = 'no-repeat',
+    backgroundPosition = 'center'
+  ) %>%
+  formatStyle("Positive test rate(%)",
+                        background = styleColorBar(t1_test_cases$"Positive test rate(%)", 'steelblue'),
+    backgroundSize = '95% 80%',
+    backgroundRepeat = 'no-repeat',
+    backgroundPosition = 'center'
+  ) %>%
+  formatStyle("Fatality rate(%)",
+                        background = styleColorBar(t1_test_cases$"Fatality rate(%)", 'steelblue'),
+    backgroundSize = '95% 80%',
+    backgroundRepeat = 'no-repeat',
+    backgroundPosition = 'center'
+  )
+
+```
+
+According to the table above, the positive test rate and fatality rate both peak in 2020. After that, the positive rate is controlled and reached below 10% in 2021.
+
+Furthermore, the test capacity has expanded from late 2020, reached above 200000 tests per month, which assist in reducing the number of undiscovered cases and deaths. Another direct benefit is that extensive testing helps the government investigate the updated pandemic situation and evaluate the corresponding measures to control the spread of the disease, such as the research on vaccines.
+
+
+### Efficiency of vaccinations in Panama
+
+```{r vacdata}
+
+p3 <- vac_panama[c(10,27,44,69,98,125,149,172,183),]
+
+vac_p <- p3 %>%
+  mutate(date = as.Date(date)) %>%
+  select(location,
+         date,
+         total_vaccinations, 
+         people_vaccinated,
+         people_fully_vaccinated) %>%
+  rename(Date = date,
+         Country = location) %>%
+  mutate(Date = ymd(Date)) %>% 
+  # mutate_at(vars(Date), funs(year, month, day)) %>%
+  # mutate(Month = month.abb[as.numeric(month)]) %>%
+  # group_by(year,Month) %>%
+  select(Date, Country,people_vaccinated,people_fully_vaccinated,total_vaccinations) %>%
+  rename('People received 1 dose' = people_vaccinated,
+         'People received 2 doses' = people_fully_vaccinated,
+         'Total vaccinations' = total_vaccinations) %>%
+  pivot_longer(cols = c('People received 1 dose', 'People received 2 doses', 'Total vaccinations'),
+               names_to = "Index",
+               values_to = "Value")
+  
+```
+
+Under normal circumstances, people believe that vaccination is an effective measure to control most epidemics directly. Thus, many countries around the world have implemented plans for vaccinations.
+
+```{r vacgraph, fig.align='center', fig.width=11,fig.height=5,fig.cap="People get vaccinated in Panama"}
+
+vac_plot <- ggplot(vac_p, aes(x = Date, y = Value, fill = Index)) +
+  geom_area(alpha = 0.8, size = .5, colour = "white") +
+  scale_fill_viridis(discrete = TRUE) +
+  theme_ipsum() +
+  ggtitle("Vaccination trend in 2021") +
+  scale_x_date(date_breaks = "2 month") +
+  scale_fill_brewer(palette="Set1") 
+
+ggplotly(vac_plot)
+
+```
+
+The chart above shows the monthly number of people who received one dose and were fully vaccinated against COVID-19, including the total vaccinations. It can be seen that vaccinations started from around early 2021, the cumulative number of people vaccinated has risen continuously in the following months. 
+
+```{r table}
+
+vac_table <- p3 %>%
+  mutate(date = as.Date(date)) %>%
+  select(location,
+         date,
+         total_vaccinations, 
+         people_vaccinated,
+         people_fully_vaccinated) %>%
+  rename(Date = date,
+         Country = location) %>%
+  mutate(Date = ymd(Date)) %>%
+  mutate_at(vars(Date), funs(year, month, day)) %>%
+  mutate(Month = month.abb[as.numeric(month)]) %>%
+  select(Country,Month,people_vaccinated,people_fully_vaccinated,total_vaccinations) %>%
+  mutate("Fully vaccinated rate (%)" = round((people_fully_vaccinated / total_vaccinations) * 100, 2)) %>%
+  rename("People vaccinated" = people_vaccinated,
+         "People fully vaccinated" = people_fully_vaccinated,
+         "Total vaccinations" = total_vaccinations)
+
+  formattable(vac_table, list(area(col = 3:5) ~ color_tile("transparent","steelblue")))
+
+```
+
+Panama has administered at least 4955162 doses of COVID-19 vaccines so far. 58.3% of the country's population has already been vaccinated when assuming two doses vaccinated per person (Reuters, 2021). 
+
+The previous COVID-related index table shows that the monthly death rate and positive rate have remained higher until the beginning of vaccination from early 2021, which likely results from the lack of control methods by the government and treatment experience at the early stage. Based on the table above, it is clear that the fully vaccinated rate has continuously increased to 41.32% in Sep 2021. 
+
+Therefore, it can be concluded that the government should promote vaccinations as one of the effective methods to avoid the COVID-19 situation continues to worsen since the positive rate and death rate are both under control from early 2021.
+
+
+
+
+
+
+
+

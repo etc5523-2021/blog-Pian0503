@@ -7,7 +7,16 @@
     <description>Blogs for ETC5523
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 02 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>COVID-19 in Panama</title>
+      <dc:creator>Pian Li</dc:creator>
+      <link>https://github.com/etc5523-2021/blog-Pian0503/posts/blog2</link>
+      <description>Analysis of the epidemic stage in Panama.</description>
+      <guid>https://github.com/etc5523-2021/blog-Pian0503/posts/blog2</guid>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/etc5523-2021/blog-Pian0503/posts/blog2/blog2_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>COVID-19 in Sweden</title>
       <dc:creator>Pian Li</dc:creator>

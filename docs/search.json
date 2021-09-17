@@ -6,8 +6,8 @@
       "description": "This blog is designed for ETC5523",
       "author": [],
       "date": "`r Sys.Date()`",
-      "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-09-15T22:46:05+08:00"
+      "contents": "\r\nThis blog is about the COVID-19 situation for some countries.\r\nHope the epidemic will end soon.\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-09-17T12:33:42+08:00"
     },
     {
       "path": "blogs.html",

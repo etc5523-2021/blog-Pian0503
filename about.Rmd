@@ -4,6 +4,8 @@ description: This blog is designed for ETC5523
 date: "`r Sys.Date()`"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+This blog is about the COVID-19 situation for some countries. 
+
+Hope the epidemic will end soon.
+
+![](https://media.giphy.com/media/J3QsoqP6L4SsKkRQbx/giphy.gif?cid=ecf05e47ypr6luo8u383gciu073coirs65a9s5j29b1wsqc3&rid=giphy.gif&ct=g){width=50%}
